@@ -3,27 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>💖 For You, Aya 💖</title>
+    <title>🔒 For My Valentine 💖</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container" id="container">
-        <div id="lockScreen">
-            <img src="lock.png" alt="Lock" class="icon" id="icon">
-            <h1>🔒 Private Message 🔒</h1>
-            <p class="message">This message is only for someone special. Enter the secret name to unlock.</p>
-            <input type="text" id="nameInput" placeholder="Enter the secret name...">
-            <button id="unlockBtn">Unlock My Heart 💘</button>
-            <p id="attempts">Attempts left: 3</p>
-            <p id="timerMessage" class="hidden">Too many fails! Wait <span id="timeLeft">30</span> seconds.</p>
+    <div class="hearts-container" id="hearts"></div>
+
+    <!-- LOCK SCREEN -->
+    <div class="container" id="lockScreen">
+        <div class="heart-bg">
+            <i class="fas fa-lock"></i>
         </div>
-        <div id="contentScreen" class="hidden">
-            <img src="Aya.jpg" alt="Aya" class="icon" id="ayaPhoto">
-            <h1>💘 Happy Valentine, Aya! 💘</h1>
-            <p class="message">You unlocked my heart. Every moment with you is special. I love you more than words can express. ❤️</p>
-            <div class="hearts">💖💖💖💖💖</div>
+        <h1>🔐 Private Message 🔐</h1>
+        <p class="subtitle">This special message is locked with a secret name</p>
+
+        <div class="photo-frame">
+            <div class="default-pic">
+                <i class="fas fa-lock"></i>
+            </div>
         </div>
+
+        <div class="message-box">
+            <p>This Valentine's message is protected. Only the person with the correct name can unlock it. Enter the exact name to proceed.</p>
+            <p class="warning">⚠️ 3 attempts allowed. Wrong attempts will lock the system for 30 seconds.</p>
+        </div>
+
+        <input type="text" id="nameInput" placeholder="Enter the secret name..." maxlength="30" autocomplete="off">
+        
+        <button class="heart-btn" id="unlockBtn">
+            <i class="fas fa-key"></i> Unlock My Heart
+        </button>
+
+        <div class="attempts-box">
+            <p id="attemptsText">Attempts left: <span id="attemptsCount">3</span></p>
+            <div class="attempts-bar">
+                <div class="attempts-fill" id="attemptsFill"></div>
+            </div>
+        </div>
+
+        <div class="timer-box" id="timerBox">
+            <i class="fas fa-clock"></i>
+            <p>System locked for <span id="timer">30</span> seconds</p>
+        </div>
+
+        <p class="footer">
+            Made with <i class="fas fa-heart" style="color:#ff2e63"></i> 
+            <br>Enter <strong>"Aya"</strong> exactly to unlock
+        </p>
     </div>
+
+    <!-- UNLOCKED SCREEN -->
+    <div class="container hidden" id="unlockedScreen">
+        <div class="heart-bg">
+            <i class="fas fa-heart"></i>
+        </div>
+        <h1>💝 Happy Valentine, Aya! 💝</h1>
+        <p class="subtitle">You successfully unlocked my heart!</p>
+
+        <div class="photo-frame">
+            <!-- GANTI DENGAN FOTO AYA.jpg -->
+            <img src="Aya.jpg" alt="Aya" id="ayaPhoto">
+        </div>
+
+        <div class="message-box">
+            <p>Dear <strong>Aya</strong>,</p>
+            <p>You are the most amazing person I've ever known. Every moment with you feels magical. Your smile brightens my darkest days, your laughter is my favorite melody.</p>
+            <p>On this special day, I want you to know how deeply I love you. You're not just my girlfriend, you're my everything. Thank you for being you.</p>
+            <p>Forever yours,<br><strong>Your Secret Admirer</strong></p>
+        </div>
+
+        <button class="heart-btn" id="heartBtn">
+            <i class="fas fa-heart"></i> Click for More Love!
+        </button>
+
+        <div class="secret-msg" id="secretMsg">
+            💌 Every day with you is Valentine's Day. I choose you, today and always. I love you to infinity and beyond! 🚀💫
+        </div>
+
+        <div class="hearts-animation">
+            <i class="fas fa-heart"></i>
+            <i class="fas fa-heart"></i>
+            <i class="fas fa-heart"></i>
+            <i class="fas fa-heart"></i>
+            <i class="fas fa-heart"></i>
+        </div>
+
+        <p class="footer">
+            Made with <i class="fas fa-heart" style="color:#ff2e63"></i> 
+            <br>💖 This message is only for you, Aya 💖
+        </p>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
