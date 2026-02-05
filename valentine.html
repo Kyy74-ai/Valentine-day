@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Valentine 💖</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            text-align: center;
+            padding: 30px 25px;
+            position: relative;
+        }
+        .heart-bg {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: rgba(255, 0, 85, 0.1);
+            font-size: 120px;
+            z-index: 0;
+        }
+        h1 {
+            color: #ff2e63;
+            margin-bottom: 10px;
+            font-size: 2.2rem;
+            position: relative;
+            z-index: 1;
+        }
+        .subtitle {
+            color: #6a11cb;
+            margin-bottom: 25px;
+            font-size: 1rem;
+        }
+        .photo-frame {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            border: 8px solid #ff2e63;
+            padding: 5px;
+            background: white;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(255, 46, 99, 0.3);
+        }
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        .default-pic {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 70px;
+            color: #ff2e63;
+        }
+        .message-box {
+            background: linear-gradient(to right, #fff5f7, #ffe8ec);
+            padding: 20px;
+            border-radius: 20px;
+            margin-bottom: 25px;
+            border-left: 6px solid #ff2e63;
+            text-align: left;
+            position: relative;
+            z-index: 1;
+        }
+        .message-box p {
+            color: #333;
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+        .heart-btn {
+            background: linear-gradient(45deg, #ff2e63, #ff6b9d);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+            box-shadow: 0 8px 20px rgba(255, 46, 99, 0.4);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .heart-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 25px rgba(255, 46, 99, 0.6);
+        }
+        .secret-msg {
+            display: none;
+            background: #ff2e63;
+            color: white;
+            padding: 15px;
+            border-radius: 15px;
+            margin-top: 20px;
+            font-weight: bold;
+            animation: fadeIn 0.8s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .hearts-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+        }
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            color: #ff2e63;
+            animation: float 5s linear infinite;
+        }
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        .footer {
+            margin-top: 20px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 2px solid #ffafbd;
+            border-radius: 10px;
+            font-size: 1rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts-container" id="hearts"></div>
+
+    <div class="container">
+        <div class="heart-bg">
+            <i class="fas fa-heart"></i>
+        </div>
+        <h1>💝 Happy Valentine's Day! 💝</h1>
+        <p class="subtitle">This special website is made just for you, my love</p>
+
+        <div class="photo-frame">
+            <!-- Ganti src dengan foto cewek lo, atau biarin default -->
+            <!-- <img src="photo.jpg" alt="My Love"> -->
+            <div class="default-pic">
+                <i class="fas fa-heart"></i>
+            </div>
+        </div>
+
+        <div class="message-box">
+            <p>Hey <span id="nameOutput">My Beautiful Girlfriend</span>,</p>
+            <p>Every day with you feels like a blessing. Your smile is my sunshine, your laugh is my favorite sound. On this Valentine's Day, I just want to remind you how incredibly special you are to me. I love you more than words can express. ❤️</p>
+            <p>Forever yours,<br><strong>Your Boyfriend</strong></p>
+        </div>
+
+        <input type="text" id="nameInput" placeholder="Type her name here..." maxlength="30">
+        
+        <button class="heart-btn" id="surpriseBtn">
+            <i class="fas fa-gift"></i> Click for a Surprise!
+        </button>
+
+        <div class="secret-msg" id="secretMsg">
+            You are the most amazing person I've ever known. I'm so lucky to have you in my life. I love you to the moon and back! 🌙💫
+        </div>
+
+        <p class="footer">
+            Made with <i class="fas fa-heart" style="color:#ff2e63"></i> by your secret admirer
+            <br>💌 This website is 100% responsive for mobile 💌
+        </p>
+    </div>
+
+    <script>
+        // Input nama
+        const nameInput = document.getElementById('nameInput');
+        const nameOutput = document.getElementById('nameOutput');
+
+        nameInput.addEventListener('input', function() {
+            nameOutput.textContent = this.value || 'My Beautiful Girlfriend';
+        });
+
+        // Surprise button
+        const surpriseBtn = document.getElementById('surpriseBtn');
+        const secretMsg = document.getElementById('secretMsg');
+
+        surpriseBtn.addEventListener('click', function() {
+            secretMsg.style.display = 'block';
+            createHearts(30);
+            this.innerHTML = '<i class="fas fa-heart"></i> I Love You!';
+            this.style.background = 'linear-gradient(45deg, #6a11cb, #2575fc)';
+        });
+
+        // Animasi hati
+        function createHearts(count) {
+            const container = document.getElementById('hearts');
+            for (let i = 0; i < count; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.fontSize = (Math.random() * 25 + 15) + 'px';
+                heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+                container.appendChild(heart);
+                setTimeout(() => { heart.remove(); }, 5000);
+            }
+        }
+
+        // Hati background
+        setInterval(() => {
+            createHearts(2);
+        }, 800);
+    </script>
+</body>
+</html>
