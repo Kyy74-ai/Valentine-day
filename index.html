@@ -3,253 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Valentine 💖</title>
+    <title>💖 Secret Message for Aya 💖</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        body {
-            background: linear-gradient(135deg, #ffafbd, #ffc3a0);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            overflow-x: hidden;
-        }
-        .container {
-            width: 100%;
-            max-width: 500px;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 25px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-            text-align: center;
-            padding: 30px 25px;
-            position: relative;
-        }
-        .heart-bg {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            color: rgba(255, 0, 85, 0.1);
-            font-size: 120px;
-            z-index: 0;
-        }
-        h1 {
-            color: #ff2e63;
-            margin-bottom: 10px;
-            font-size: 2.2rem;
-            position: relative;
-            z-index: 1;
-        }
-        .subtitle {
-            color: #6a11cb;
-            margin-bottom: 25px;
-            font-size: 1rem;
-        }
-        .photo-frame {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            margin: 0 auto 25px;
-            border: 8px solid #ff2e63;
-            padding: 5px;
-            background: white;
-            overflow: hidden;
-            box-shadow: 0 8px 20px rgba(255, 46, 99, 0.3);
-        }
-        .photo-frame img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-        }
-        .default-pic {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, #ff9a9e, #fad0c4);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 70px;
-            color: #ff2e63;
-        }
-        .message-box {
-            background: linear-gradient(to right, #fff5f7, #ffe8ec);
-            padding: 20px;
-            border-radius: 20px;
-            margin-bottom: 25px;
-            border-left: 6px solid #ff2e63;
-            text-align: left;
-            position: relative;
-            z-index: 1;
-        }
-        .message-box p {
-            color: #333;
-            line-height: 1.6;
-            font-size: 1.05rem;
-        }
-        .heart-btn {
-            background: linear-gradient(45deg, #ff2e63, #ff6b9d);
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            font-size: 1.2rem;
-            border-radius: 50px;
-            cursor: pointer;
-            margin-bottom: 20px;
-            transition: all 0.3s;
-            box-shadow: 0 8px 20px rgba(255, 46, 99, 0.4);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-        .heart-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 12px 25px rgba(255, 46, 99, 0.6);
-        }
-        .secret-msg {
-            display: none;
-            background: #ff2e63;
-            color: white;
-            padding: 15px;
-            border-radius: 15px;
-            margin-top: 20px;
-            font-weight: bold;
-            animation: fadeIn 0.8s;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        .hearts-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 9999;
-        }
-        .heart {
-            position: absolute;
-            font-size: 20px;
-            color: #ff2e63;
-            animation: float 5s linear infinite;
-        }
-        @keyframes float {
-            0% {
-                transform: translateY(100vh) rotate(0deg);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100px) rotate(360deg);
-                opacity: 0;
-            }
-        }
-        .footer {
-            margin-top: 20px;
-            color: #777;
-            font-size: 0.9rem;
-        }
-        input {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            border: 2px solid #ffafbd;
-            border-radius: 10px;
-            font-size: 1rem;
-            text-align: center;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body id="bodyElement">
     <div class="hearts-container" id="hearts"></div>
 
     <div class="container">
         <div class="heart-bg">
             <i class="fas fa-heart"></i>
         </div>
-        <h1>💝 Happy Valentine's Day! 💝</h1>
-        <p class="subtitle">This special website is made just for you, my love</p>
+        
+        <h1 class="before-header" id="mainHeader">💝 Secret Message 💝</h1>
+        <p class="subtitle" id="subtitle">This website is locked with a special name</p>
 
-        <div class="photo-frame">
-            <!-- Ganti src dengan foto cewek lo, atau biarin default -->
-            <!-- <img src="photo.jpg" alt="My Love"> -->
-            <div class="default-pic">
-                <i class="fas fa-heart"></i>
+        <div class="photo-frame" id="photoFrame">
+            <div class="default-pic" id="defaultPic">
+                <i class="fas fa-lock"></i>
             </div>
         </div>
 
-        <div class="message-box">
-            <p>Hey <span id="nameOutput">My Beautiful Girlfriend</span>,</p>
-            <p>Every day with you feels like a blessing. Your smile is my sunshine, your laugh is my favorite sound. On this Valentine's Day, I just want to remind you how incredibly special you are to me. I love you more than words can express. ❤️</p>
-            <p>Forever yours,<br><strong>Your Boyfriend</strong></p>
+        <!-- MESSAGE BOX -->
+        <div class="message-box before-mode" id="messageBox">
+            <div class="before-click">
+                <p>Hey <span id="nameOutput">...</span>,</p>
+                <p>This message is protected and can only be unlocked by the right person. If you're not who I think you are, this won't work.</p>
+                <p>Enter the <strong>exact secret name</strong> to continue...</p>
+                <p style="text-align: right; margin-top: 20px; font-style: italic;">
+                    Waiting for you,<br>
+                    <strong>Your Secret Admirer</strong>
+                </p>
+            </div>
+            
+            <div class="after-click">
+                <p style="font-size: 1.3rem; text-align: center; margin-bottom: 20px;">
+                    <span class="unlocked-badge">
+                        💕 UNLOCKED FOR AYA! 💕
+                    </span>
+                </p>
+                <p>Hey <span id="nameOutput2">Aya</span>,</p>
+                <p>✨ <strong>THIS MESSAGE IS ONLY FOR YOU:</strong> ✨</p>
+                <p>You are the only one who could unlock this. That means you're special, you're important, and this message is meant only for your eyes.</p>
+                <p class="special-quote">
+                    💖 "Out of everyone in the world, only you have the key to my heart." 💖
+                </p>
+                <p>I have so much to tell you, but for now, just know that you're amazing and I'm so glad you're in my life.</p>
+                <p style="text-align: center; margin-top: 20px; font-size: 1.4rem;">
+                    EXCLUSIVELY FOR YOU! 💫
+                </p>
+                <p style="text-align: right; font-style: italic;">
+                    With all my heart,<br>
+                    <strong>Your Secret Admirer 💌</strong>
+                </p>
+            </div>
         </div>
 
-        <input type="text" id="nameInput" placeholder="Type her name here..." maxlength="30">
+        <!-- INPUT DENGAN VALIDASI KETAT -->
+        <div class="input-container">
+            <input type="text" id="nameInput" placeholder="Enter the secret name..." maxlength="10" autocomplete="off">
+            <i class="fas fa-check-circle input-icon valid-icon" id="validIcon"></i>
+            <i class="fas fa-times-circle input-icon invalid-icon" id="invalidIcon"></i>
+            <i class="fas fa-question-circle input-icon hint-icon" id="hintIcon"></i>
+        </div>
         
-        <button class="heart-btn" id="surpriseBtn">
-            <i class="fas fa-gift"></i> Click for a Surprise!
+        <!-- HINT MESSAGE -->
+        <div class="hint-message" id="hintMessage">
+            <i class="fas fa-lightbulb"></i> Hint: The name is <span class="hint-text">3 letters</span>, starts with 'A'
+        </div>
+        
+        <!-- WARNING MESSAGE -->
+        <div class="warning-message" id="warningMessage">
+            <i class="fas fa-exclamation-triangle"></i> <span id="warningText"></span>
+        </div>
+        
+        <!-- LOADING EFFECT -->
+        <div class="loading" id="loading">
+            <div class="loader"></div>
+            <p class="loading-text">Verifying identity...</p>
+        </div>
+        
+        <!-- BUTTON AWALNYA DISABLED -->
+        <button class="heart-btn" id="surpriseBtn" disabled>
+            <i class="fas fa-lock"></i> Enter Correct Name
         </button>
 
+        <!-- SECRET MESSAGE -->
         <div class="secret-msg" id="secretMsg">
-            You are the most amazing person I've ever known. I'm so lucky to have you in my life. I love you to the moon and back! 🌙💫
+            <i class="fas fa-key"></i> <span id="secretText"></span>
         </div>
 
-        <p class="footer">
-            Made with <i class="fas fa-heart" style="color:#ff2e63"></i> by your secret admirer
-            <br>💌 This website is 100% responsive for mobile 💌
+        <!-- ATTEMPTS COUNTER -->
+        <div class="attempts-counter" id="attemptsCounter">
+            Attempts: <span id="attemptsCount">0</span>/3
+        </div>
+
+        <p class="footer" id="footerText">
+            <i class="fas fa-fingerprint"></i> Identity-protected system
+            <br>💌 <span id="instructionText">Case-sensitive. No spaces.</span> 💌
         </p>
     </div>
 
-    <script>
-        // Input nama
-        const nameInput = document.getElementById('nameInput');
-        const nameOutput = document.getElementById('nameOutput');
-
-        nameInput.addEventListener('input', function() {
-            nameOutput.textContent = this.value || 'My Beautiful Girlfriend';
-        });
-
-        // Surprise button
-        const surpriseBtn = document.getElementById('surpriseBtn');
-        const secretMsg = document.getElementById('secretMsg');
-
-        surpriseBtn.addEventListener('click', function() {
-            secretMsg.style.display = 'block';
-            createHearts(30);
-            this.innerHTML = '<i class="fas fa-heart"></i> I Love You!';
-            this.style.background = 'linear-gradient(45deg, #6a11cb, #2575fc)';
-        });
-
-        // Animasi hati
-        function createHearts(count) {
-            const container = document.getElementById('hearts');
-            for (let i = 0; i < count; i++) {
-                const heart = document.createElement('div');
-                heart.classList.add('heart');
-                heart.innerHTML = '❤️';
-                heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.fontSize = (Math.random() * 25 + 15) + 'px';
-                heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
-                container.appendChild(heart);
-                setTimeout(() => { heart.remove(); }, 5000);
-            }
-        }
-
-        // Hati background
-        setInterval(() => {
-            createHearts(2);
-        }, 800);
-    </script>
+    <script src="script.js"></script>
 </body>
-
 </html>
