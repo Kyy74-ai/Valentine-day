@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💖 Secret Message for Aya 💖</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body id="bodyElement">
+    <div class="hearts-container" id="hearts"></div>
+
+    <div class="container">
+        <div class="heart-bg">
+            <i class="fas fa-heart"></i>
+        </div>
+        
+        <h1 class="before-header" id="mainHeader">💝 Secret Message 💝</h1>
+        <p class="subtitle" id="subtitle">This website is locked with a special name</p>
+
+        <div class="photo-frame" id="photoFrame">
+            <div class="default-pic" id="defaultPic">
+                <i class="fas fa-lock"></i>
+            </div>
+        </div>
+
+        <!-- MESSAGE BOX -->
+        <div class="message-box before-mode" id="messageBox">
+            <div class="before-click">
+                <p>Hey <span id="nameOutput">...</span>,</p>
+                <p>This message is protected and can only be unlocked by the right person. If you're not who I think you are, this won't work.</p>
+                <p>Enter the <strong>exact secret name</strong> to continue...</p>
+                <p style="text-align: right; margin-top: 20px; font-style: italic;">
+                    Waiting for you,<br>
+                    <strong>Your Secret Admirer</strong>
+                </p>
+            </div>
+            
+            <div class="after-click">
+                <p style="font-size: 1.3rem; text-align: center; margin-bottom: 20px;">
+                    <span class="unlocked-badge">
+                        💕 UNLOCKED FOR AYA! 💕
+                    </span>
+                </p>
+                <p>Hey <span id="nameOutput2">Aya</span>,</p>
+                <p>✨ <strong>THIS MESSAGE IS ONLY FOR YOU:</strong> ✨</p>
+                <p>You are the only one who could unlock this. That means you're special, you're important, and this message is meant only for your eyes.</p>
+                <p class="special-quote">
+                    💖 "Out of everyone in the world, only you have the key to my heart." 💖
+                </p>
+                <p>I have so much to tell you, but for now, just know that you're amazing and I'm so glad you're in my life.</p>
+                <p style="text-align: center; margin-top: 20px; font-size: 1.4rem;">
+                    EXCLUSIVELY FOR YOU! 💫
+                </p>
+                <p style="text-align: right; font-style: italic;">
+                    With all my heart,<br>
+                    <strong>Your Secret Admirer 💌</strong>
+                </p>
+            </div>
+        </div>
+
+        <!-- INPUT DENGAN VALIDASI KETAT -->
+        <div class="input-container">
+            <input type="text" id="nameInput" placeholder="Enter the secret name..." maxlength="10" autocomplete="off">
+            <i class="fas fa-check-circle input-icon valid-icon" id="validIcon"></i>
+            <i class="fas fa-times-circle input-icon invalid-icon" id="invalidIcon"></i>
+            <i class="fas fa-question-circle input-icon hint-icon" id="hintIcon"></i>
+        </div>
+        
+        <!-- HINT MESSAGE -->
+        <div class="hint-message" id="hintMessage">
+            <i class="fas fa-lightbulb"></i> Hint: The name is <span class="hint-text">3 letters</span>, starts with 'A'
+        </div>
+        
+        <!-- WARNING MESSAGE -->
+        <div class="warning-message" id="warningMessage">
+            <i class="fas fa-exclamation-triangle"></i> <span id="warningText"></span>
+        </div>
+        
+        <!-- LOADING EFFECT -->
+        <div class="loading" id="loading">
+            <div class="loader"></div>
+            <p class="loading-text">Verifying identity...</p>
+        </div>
+        
+        <!-- BUTTON AWALNYA DISABLED -->
+        <button class="heart-btn" id="surpriseBtn" disabled>
+            <i class="fas fa-lock"></i> Enter Correct Name
+        </button>
+
+        <!-- SECRET MESSAGE -->
+        <div class="secret-msg" id="secretMsg">
+            <i class="fas fa-key"></i> <span id="secretText"></span>
+        </div>
+
+        <!-- ATTEMPTS COUNTER -->
+        <div class="attempts-counter" id="attemptsCounter">
+            Attempts: <span id="attemptsCount">0</span>/3
+        </div>
+
+        <p class="footer" id="footerText">
+            <i class="fas fa-fingerprint"></i> Identity-protected system
+            <br>💌 <span id="instructionText">Case-sensitive. No spaces.</span> 💌
+        </p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

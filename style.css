@@ -1,0 +1,499 @@
+/* ================================= */
+/* RESET & BASE STYLES */
+/* ================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
+    transition: background 0.8s ease;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    text-align: center;
+    padding: 30px 25px;
+    position: relative;
+}
+
+/* ================================= */
+/* HEART BACKGROUND */
+/* ================================= */
+.heart-bg {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: rgba(255, 0, 85, 0.05);
+    font-size: 120px;
+    z-index: 0;
+}
+
+/* ================================= */
+/* TYPOGRAPHY */
+/* ================================= */
+h1 {
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+    font-family: 'Dancing Script', cursive;
+}
+
+.before-header {
+    color: #ff6b9d;
+    text-shadow: 0 2px 10px rgba(255, 107, 157, 0.3);
+    font-size: 2.8rem;
+}
+
+.after-header {
+    color: #00ff88;
+    text-shadow: 0 0 15px rgba(0, 255, 136, 0.5);
+    font-size: 3rem;
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 15px rgba(0, 255, 136, 0.5); }
+    to { text-shadow: 0 0 25px rgba(0, 255, 136, 0.8), 0 0 35px rgba(0, 255, 136, 0.6); }
+}
+
+.subtitle {
+    color: #a0a0c0;
+    margin-bottom: 30px;
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+/* ================================= */
+/* PHOTO FRAME */
+/* ================================= */
+.photo-frame {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    margin: 0 auto 30px;
+    border: 3px solid #ff6b9d;
+    padding: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(255, 107, 157, 0.2);
+    transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.photo-frame.unlocked {
+    border: 3px solid #00ff88;
+    box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
+    transform: scale(1.1) rotateY(360deg);
+}
+
+.default-pic {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ff6b9d, #ff8e53);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 70px;
+    color: white;
+    transition: all 0.8s ease;
+}
+
+.default-pic.unlocked {
+    background: linear-gradient(135deg, #00ff88, #00ccff);
+}
+
+/* ================================= */
+/* MESSAGE BOX */
+/* ================================= */
+.message-box {
+    padding: 25px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    text-align: left;
+    position: relative;
+    min-height: 320px;
+    transition: all 0.8s ease;
+}
+
+.message-box.before-mode {
+    background: rgba(255, 255, 255, 0.08);
+    border: 2px dashed rgba(255, 107, 157, 0.3);
+}
+
+.message-box.after-mode {
+    background: rgba(0, 255, 136, 0.1);
+    border: 2px solid #00ff88;
+    box-shadow: 0 0 30px rgba(0, 255, 136, 0.2);
+}
+
+.message-box p {
+    line-height: 1.7;
+    margin-bottom: 15px;
+    font-weight: 300;
+}
+
+.message-box.before-mode p {
+    color: #ccccdd;
+}
+
+.message-box.after-mode p {
+    color: #ffffff;
+}
+
+.message-box .before-click {
+    display: block;
+}
+
+.message-box .after-click {
+    display: none;
+}
+
+.message-box.after-mode .before-click {
+    display: none !important;
+}
+
+.message-box.after-mode .after-click {
+    display: block;
+}
+
+.special-quote {
+    font-size: 1.2rem;
+    color: #00ff88 !important;
+    text-align: center;
+    margin: 20px 0;
+    font-style: italic;
+    padding: 10px;
+    border-left: 3px solid #00ff88;
+    border-right: 3px solid #00ff88;
+}
+
+.unlocked-badge {
+    background: linear-gradient(45deg, #00ff88, #00ccff);
+    color: #1a1a2e;
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    display: inline-block;
+    animation: pulse 2s infinite;
+}
+
+/* ================================= */
+/* INPUT & VALIDATION */
+/* ================================= */
+.input-container {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+input {
+    width: 100%;
+    padding: 18px 50px 18px 20px;
+    border: 2px solid rgba(255, 107, 157, 0.5);
+    border-radius: 15px;
+    font-size: 1.2rem;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    transition: all 0.3s;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+input:focus {
+    outline: none;
+    border-color: #ff6b9d;
+    box-shadow: 0 0 20px rgba(255, 107, 157, 0.3);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+input.valid {
+    border-color: #00ff88;
+    background: rgba(0, 255, 136, 0.1);
+    color: #00ff88;
+}
+
+input.invalid {
+    border-color: #ff4757;
+    background: rgba(255, 71, 87, 0.1);
+    color: #ff4757;
+    animation: shake 0.5s;
+}
+
+input.disabled {
+    border-color: #666;
+    background: rgba(255, 255, 255, 0.05);
+    color: #888;
+    cursor: not-allowed;
+}
+
+.input-icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    display: none;
+}
+
+.valid-icon {
+    color: #00ff88;
+    display: block !important;
+}
+
+.invalid-icon {
+    color: #ff4757;
+    display: block !important;
+}
+
+.hint-icon {
+    color: #ffa502;
+    cursor: help;
+    display: block !important;
+}
+
+/* ================================= */
+/* MESSAGES */
+/* ================================= */
+.hint-message {
+    color: #ffa502;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    display: block;
+    opacity: 0.8;
+}
+
+.hint-text {
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.warning-message {
+    color: #ff4757;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    display: none;
+    animation: fadeIn 0.3s;
+}
+
+.loading {
+    margin: 20px 0;
+    display: none;
+}
+
+.loader {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    border-top: 4px solid #00ff88;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+
+.loading-text {
+    color: #a0a0c0;
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* ================================= */
+/* BUTTON */
+/* ================================= */
+.heart-btn {
+    background: linear-gradient(45deg, #ff6b9d, #ff8e53);
+    color: white;
+    border: none;
+    padding: 18px 40px;
+    font-size: 1.2rem;
+    border-radius: 15px;
+    cursor: pointer;
+    margin: 20px 0;
+    box-shadow: 0 10px 20px rgba(255, 107, 157, 0.3);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+}
+
+.heart-btn:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px rgba(255, 107, 157, 0.4);
+}
+
+.heart-btn:active:not(:disabled) {
+    transform: translateY(-1px);
+}
+
+.heart-btn:disabled {
+    background: linear-gradient(45deg, #444, #666);
+    color: #888;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none !important;
+}
+
+.heart-btn.unlocked {
+    background: linear-gradient(45deg, #00ff88, #00ccff);
+    box-shadow: 0 10px 20px rgba(0, 255, 136, 0.3);
+    animation: pulse 1.5s infinite;
+}
+
+/* ================================= */
+/* SECRET MESSAGE */
+/* ================================= */
+.secret-msg {
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    margin: 20px 0;
+    font-weight: bold;
+    animation: fadeIn 0.8s;
+    display: none;
+    border: 2px solid #00ff88;
+    text-align: center;
+}
+
+/* ================================= */
+/* ATTEMPTS COUNTER */
+/* ================================= */
+.attempts-counter {
+    color: #a0a0c0;
+    font-size: 0.9rem;
+    margin: 15px 0;
+    padding: 8px 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    display: inline-block;
+}
+
+/* ================================= */
+/* FOOTER */
+/* ================================= */
+.footer {
+    margin-top: 25px;
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* ================================= */
+/* HEARTS ANIMATION */
+/* ================================= */
+.hearts-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.heart {
+    position: absolute;
+    font-size: 20px;
+    animation: float 6s linear infinite;
+}
+
+.heart.red { color: #ff6b9d; }
+.heart.green { color: #00ff88; }
+.heart.blue { color: #00ccff; }
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* ================================= */
+/* RESPONSIVE */
+/* ================================= */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px 15px;
+    }
+    
+    .before-header {
+        font-size: 2.2rem;
+    }
+    
+    .after-header {
+        font-size: 2.5rem;
+    }
+    
+    .photo-frame {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .default-pic {
+        font-size: 60px;
+    }
+    
+    input {
+        padding: 15px 45px 15px 15px;
+        font-size: 1.1rem;
+    }
+    
+    .heart-btn {
+        padding: 16px 30px;
+        font-size: 1.1rem;
+    }
+}
