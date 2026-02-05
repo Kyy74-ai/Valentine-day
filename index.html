@@ -21,9 +21,19 @@
         <h1 class="before-header" id="mainHeader">💝 Secret Message 💝</h1>
         <p class="subtitle" id="subtitle">This website is locked with a special name</p>
 
+        <!-- PHOTO FRAME DENGAN 2 STATE: LOCKED & UNLOCKED -->
         <div class="photo-frame" id="photoFrame">
-            <div class="default-pic" id="defaultPic">
+            <!-- SEBELUM UNLOCK: GEMBOK -->
+            <div class="locked-pic" id="lockedPic">
                 <i class="fas fa-lock"></i>
+                <div class="lock-text">LOCKED</div>
+            </div>
+            
+            <!-- SETELAH UNLOCK: FOTO Aya.JPG -->
+            <div class="unlocked-pic" id="unlockedPic" style="display: none;">
+                <img src="Aya.JPG" alt="Aya" class="photo-image" id="photoImage" 
+                     onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSI5MCIgZmlsbD0iIzAwZmY4OCIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iNjAiIGZpbGw9IiNmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj7wn5KqPC90ZXh0Pjwvc3ZnPg=='; this.alt='Aya';">
+                <div class="photo-text">FOR AYA</div>
             </div>
         </div>
 
@@ -70,15 +80,15 @@
             <i class="fas fa-question-circle input-icon hint-icon" id="hintIcon"></i>
         </div>
         
-<!-- DI BAGIAN HINT MESSAGE, GANTI INI: -->
-<div class="hint-message" id="hintMessage" style="display: none;">
-    <i class="fas fa-lightbulb"></i> Hint: <span id="hintText"></span>
-</div>
-
-<!-- JADI INI (HINT TIDAK KASIH NAMA "Aya"): -->
-<div class="hint-message" id="hintMessage" style="display: none;">
-    <i class="fas fa-lightbulb"></i> <span id="hintText"></span>
-</div>
+        <!-- HINT MESSAGE -->
+        <div class="hint-message" id="hintMessage">
+            <i class="fas fa-lightbulb"></i> Hint: The name is <span class="hint-text">3 letters</span>, starts with 'A'
+        </div>
+        
+        <!-- WARNING MESSAGE -->
+        <div class="warning-message" id="warningMessage">
+            <i class="fas fa-exclamation-triangle"></i> <span id="warningText"></span>
+        </div>
         
         <!-- LOADING EFFECT -->
         <div class="loading" id="loading">
