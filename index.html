@@ -3,73 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>💖 Secret Message for Aya 💖</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>💖 For You, Aya 💖</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="hearts-container" id="hearts"></div>
-
-    <div class="container">
-        <h1 id="mainTitle">🔒 Secret Message</h1>
-        <p class="subtitle" id="subtitle">For one special person only</p>
-
-        <div class="photo-frame" id="photoFrame">
-            <div class="locked-pic" id="lockedPic">
-                <i class="fas fa-lock"></i>
-                <div class="lock-text">LOCKED</div>
-            </div>
-            <div class="unlocked-pic" id="unlockedPic">
-                <img src="Aya.JPG" alt="Aya" class="photo-image" id="photoImage" onerror="showFallbackImage()">
-                <div class="photo-text">FOR AYA</div>
-            </div>
+    <div class="container" id="container">
+        <div id="lockScreen">
+            <img src="lock.png" alt="Lock" class="icon" id="icon">
+            <h1>🔒 Private Message 🔒</h1>
+            <p class="message">This message is only for someone special. Enter the secret name to unlock.</p>
+            <input type="text" id="nameInput" placeholder="Enter the secret name...">
+            <button id="unlockBtn">Unlock My Heart 💘</button>
+            <p id="attempts">Attempts left: 3</p>
+            <p id="timerMessage" class="hidden">Too many fails! Wait <span id="timeLeft">30</span> seconds.</p>
         </div>
-
-        <div class="message-box" id="messageBox">
-            <div class="message-before" id="messageBefore">
-                <p>Hey <span id="namePlaceholder">...</span>,</p>
-                <p>This message is protected. Only the right person can unlock it.</p>
-                <p>Enter the exact secret name to continue.</p>
-                <p class="signature">— Secret Admirer</p>
-            </div>
-            
-            <div class="message-after" id="messageAfter">
-                <div class="unlocked-title">💖 UNLOCKED FOR AYA! 💖</div>
-                <p>Hey <span id="nameDisplay">Aya</span>,</p>
-                <p class="highlight">✨ THIS MESSAGE IS ONLY FOR YOU ✨</p>
-                <p>You're special and important. This message was meant only for your eyes.</p>
-                <p class="quote">"Out of everyone in the world, only you have the key to my heart."</p>
-                <p>You're amazing and I'm so glad you're in my life.</p>
-                <p class="closing">With all my love,<br><strong>💌</strong></p>
-            </div>
-        </div>
-
-        <div class="input-container">
-            <input type="text" id="nameInput" placeholder="Enter secret name..." autocomplete="off">
-            <i class="fas fa-check-circle icon-check" id="iconCheck"></i>
-            <i class="fas fa-times-circle icon-cross" id="iconCross"></i>
-        </div>
-        
-        <div class="hint-box" id="hintBox">
-            <i class="fas fa-lightbulb"></i> 
-            <span id="hintText">Hint: 3 letters, starts with 'A'</span>
-        </div>
-        
-        <div class="error-box" id="errorBox">
-            <i class="fas fa-exclamation-circle"></i> 
-            <span id="errorText"></span>
-        </div>
-        
-        <button class="unlock-btn" id="unlockBtn" disabled>
-            <i class="fas fa-lock"></i> Enter Name First
-        </button>
-
-        <div class="footer">
-            <p>Made with <i class="fas fa-heart" style="color:#ff2e63"></i></p>
-            <p class="attempts">Attempts: <span id="attemptCount">0</span>/5</p>
+        <div id="contentScreen" class="hidden">
+            <img src="Aya.jpg" alt="Aya" class="icon" id="ayaPhoto">
+            <h1>💘 Happy Valentine, Aya! 💘</h1>
+            <p class="message">You unlocked my heart. Every moment with you is special. I love you more than words can express. ❤️</p>
+            <div class="hearts">💖💖💖💖💖</div>
         </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
