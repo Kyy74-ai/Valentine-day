@@ -236,3 +236,259 @@ input.error {
         opacity: 0;
     }
 }
+
+/* ==================== */
+/* RESPONSIVE FIXES */
+/* ==================== */
+
+/* TABLET (768px - 1024px) */
+@media screen and (max-width: 1024px) {
+    .container {
+        max-width: 90%;
+        padding: 25px 20px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    .photo-frame {
+        width: 160px;
+        height: 160px;
+    }
+    
+    .default-pic {
+        font-size: 60px;
+    }
+}
+
+/* MOBILE (480px - 768px) */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 15px;
+        display: block;
+        min-height: 100vh;
+        height: auto;
+    }
+    
+    .container {
+        max-width: 100%;
+        margin: 10px auto;
+        padding: 20px 15px;
+        border-radius: 20px;
+    }
+    
+    h1 {
+        font-size: 1.6rem;
+        margin-bottom: 8px;
+    }
+    
+    .subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+    }
+    
+    .photo-frame {
+        width: 140px;
+        height: 140px;
+        margin-bottom: 20px;
+    }
+    
+    .default-pic {
+        font-size: 50px;
+    }
+    
+    .message-box {
+        padding: 15px;
+        margin-bottom: 20px;
+        font-size: 0.9rem;
+    }
+    
+    .message-box p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+    
+    .heart-btn {
+        padding: 12px 20px;
+        font-size: 1.1rem;
+        margin: 10px 0;
+    }
+    
+    input {
+        padding: 12px;
+        font-size: 1rem;
+        margin-bottom: 15px;
+    }
+    
+    .attempts-box, .timer-box {
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+    
+    .footer {
+        font-size: 0.8rem;
+        margin-top: 15px;
+    }
+    
+    .hearts-animation {
+        font-size: 30px;
+        margin: 15px 0;
+    }
+    
+    .heart-bg {
+        font-size: 80px;
+        top: 5px;
+        right: 5px;
+    }
+}
+
+/* SMALL MOBILE (0px - 480px) */
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 15px 12px;
+        border-radius: 15px;
+    }
+    
+    h1 {
+        font-size: 1.4rem;
+    }
+    
+    .photo-frame {
+        width: 120px;
+        height: 120px;
+        border-width: 6px;
+    }
+    
+    .default-pic {
+        font-size: 40px;
+    }
+    
+    .heart-btn {
+        font-size: 1rem;
+        padding: 10px 15px;
+    }
+    
+    input {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+    
+    .message-box p {
+        font-size: 0.85rem;
+    }
+    
+    .heart-bg {
+        font-size: 60px;
+    }
+    
+    .hearts-animation {
+        font-size: 25px;
+    }
+}
+
+/* LANDSCAPE MODE */
+@media screen and (max-height: 600px) and (orientation: landscape) {
+    body {
+        padding: 10px;
+        display: flex;
+        align-items: flex-start;
+    }
+    
+    .container {
+        max-width: 90%;
+        margin: 10px auto;
+        padding: 15px;
+    }
+    
+    .photo-frame {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 15px;
+    }
+    
+    .default-pic {
+        font-size: 40px;
+    }
+}
+
+/* HIGH DPI SCREENS */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .container {
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    .heart-btn, input {
+        transform: translateZ(0);
+        -webkit-transform: translateZ(0);
+    }
+}
+
+/* FIX UNTUK IOS SAFARI */
+@supports (-webkit-touch-callout: none) {
+    body {
+        min-height: -webkit-fill-available;
+    }
+    
+    .container {
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+    }
+    
+    input, .heart-btn {
+        -webkit-appearance: none;
+        border-radius: 15px;
+    }
+}
+
+/* FIX UNTUK ANDROID CHROME */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    input:focus {
+        font-size: 16px !important; /* Mencegah zoom di Android */
+    }
+}
+
+/* FIX SCROLL PADA MOBILE */
+@media (max-width: 768px) {
+    html {
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    body {
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* FIX TAP HIGHLIGHT */
+.heart-btn, input {
+    -webkit-tap-highlight-color: transparent;
+    tap-highlight-color: transparent;
+}
+
+/* FIX FONT SIZE MINIMUM */
+@media screen and (max-width: 360px) {
+    html {
+        font-size: 14px;
+    }
+    
+    .container {
+        padding: 12px 10px;
+    }
+}
+
+/* FIX UNTUK FOLDABLE PHONES */
+@media screen and (max-width: 280px) {
+    .container {
+        padding: 10px 8px;
+    }
+    
+    h1 {
+        font-size: 1.2rem;
+    }
+    
+    .photo-frame {
+        width: 100px;
+        height: 100px;
+    }
+}
