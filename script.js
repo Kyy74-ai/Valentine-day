@@ -131,3 +131,98 @@ function createHearts(count) {
 setInterval(() => {
     if (!isLocked) createHearts(1);
 }, 1500);
+
+// ==================== */
+// RESPONSIVE JS FIXES
+// ==================== */
+
+// Detect device and adjust
+function detectDevice() {
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    const isTablet = /iPad|Android(?!.*Mobile)|Tablet/i.test(navigator.userAgent);
+    
+    if (isMobile) {
+        document.body.classList.add('mobile-device');
+        console.log('📱 Mobile device detected');
+    } else if (isTablet) {
+        document.body.classList.add('tablet-device');
+        console.log('📟 Tablet device detected');
+    } else {
+        document.body.classList.add('desktop-device');
+        console.log('💻 Desktop device detected');
+    }
+    
+    // Adjust hearts animation for mobile
+    if (isMobile || isTablet) {
+        // Reduce number of hearts for better performance
+        const heartsContainer = document.getElementById('hearts');
+        if (heartsContainer) {
+            heartsContainer.style.willChange = 'transform';
+            heartsContainer.style.backfaceVisibility = 'hidden';
+        }
+    }
+}
+
+// Fix for iOS viewport height
+function fixViewportHeight() {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+    
+    // For mobile safari
+    if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
+        document.body.style.minHeight = `${window.innerHeight}px`;
+    }
+}
+
+// Prevent zoom on input focus (iOS)
+if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
+    document.addEventListener('touchstart', function() {}, {passive: true});
+    
+    nameInput.addEventListener('focus', function() {
+        setTimeout(() => {
+            this.style.fontSize = '16px';
+        }, 100);
+    });
+}
+
+// Initialize responsive fixes
+window.addEventListener('DOMContentLoaded', function() {
+    detectDevice();
+    fixViewportHeight();
+    
+    // Recalculate on resize
+    window.addEventListener('resize', fixViewportHeight);
+    window.addEventListener('orientationchange', fixViewportHeight);
+    
+    // Fix for Android keyboard
+    window.addEventListener('resize', function() {
+        if (document.activeElement === nameInput) {
+            setTimeout(() => {
+                nameInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 300);
+        }
+    });
+});
+
+// Add CSS variable for viewport height
+const style = document.createElement('style');
+style.textContent = `
+    :root {
+        --vh: 1vh;
+    }
+    
+    .mobile-device .container {
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    }
+    
+    .mobile-device .heart-btn:active {
+        transform: scale(0.98) !important;
+    }
+    
+    @media (max-width: 768px) {
+        body {
+            min-height: calc(var(--vh, 1vh) * 100);
+        }
+    }
+`;
+document.head.appendChild(style);
